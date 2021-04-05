@@ -31,46 +31,35 @@ $(".time-block").each(function () {
     })  
 
     // Save on Click 
-    let descriptionEl = document.querySelector("#description")
+    let descriptionEl = document.querySelector("#descriptionInput")
     let saveBtn = document.querySelector("#save")
-    let msgDiv = document.querySelector("#msg")
-    let userSpan = document.querySelector("#") 
+   
+    
 
     renderLastRegistered();
 
-function displayMessage(type, message) {
-  msgDiv.textContent = message;
-  msgDiv.setAttribute("class", type);
-}
-
 function renderLastRegistered() {
-  let initials = localStorage.getItem("initials");
- 
-   if (!initials ){
+  let descriptionEl = localStorage.getItem("email");
+
+  if (!descriptionEl) {
     return;
   }
 
-  userSpan.textContent = initials;
+  descriptionEl.textContent = descriptionEl;
   
 }
 
-  enterBtn.addEventListener("click", function(event) {
+saveBtn.addEventListener("click", function(event) {
   event.preventDefault();
+  console.log("saveBtn")
 
-  let initials = document.querySelector("#initials").value;
- 
+  
 
-  if (initials === "") {
-    displayMessage("error", "Come on Bro");
-  } 
-  else {
-    displayMessage("success", "I Got You");
-
-    localStorage.setItem("initials", initials);
+    localStorage.setItem("descriptionInput", descriptionEl);
+    console.log("descriptionEl")
+   
     renderLastRegistered();
-  }
-});
-
+  })
 
 
 
