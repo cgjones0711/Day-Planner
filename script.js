@@ -23,11 +23,27 @@ $(".time-block").each(function () {
 
     // Save on Click
     
-var messageInput = document.querySelector("#messageInput");
-var saveBtn = document.querySelector("#save");
+let messageInput = document.querySelector("#messageInput");
+let hourLoop = document.getElementById("#hourloop");
+let saveBtn = document.querySelector("#save");
+let comments=document.querySelector("comments")
 
 
-saveBtn.addEventListener("click", function(event) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.body.addEventListener("click", function(event) {
 event.preventDefault();
 
 let appointmentMessage = {
@@ -35,7 +51,6 @@ let appointmentMessage = {
 };
 
 localStorage.setItem("appointmentMessage", JSON.stringify(appointmentMessage));
-
 
 });
 
