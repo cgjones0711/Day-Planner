@@ -3,16 +3,7 @@ $("#currentDay").text(moment().format("MMMM Do YYYY"));
 var currentHour = moment().hours();
 console.log(currentHour)
 
-//button icon script
-$('input[type="submit"]').each(function () {
-  $(this).hide().after('<button>').next().button({
-       icons: { primary: $(this).attr('icon') },
-       label: $(this).val()
-   }).click(function (event) {
-        event.preventDefault();
-        $(this).prev().click();
-   });
-});
+
 
 //color changing function by hour
 $(".time-block").each(function () {
@@ -30,39 +21,22 @@ $(".time-block").each(function () {
 
     })  
 
-    // Save on Click 
-    let descriptionEl = document.querySelector("#descriptionInput")
-    let saveBtn = document.querySelector("#save")
-   
+    // Save on Click
     
+var messageInput = document.querySelector("#messageInput");
+var saveBtn = document.querySelector("#save");
 
-    renderLastRegistered();
-
-function renderLastRegistered() {
-  let descriptionEl = localStorage.getItem("email");
-
-  if (!descriptionEl) {
-    return;
-  }
-
-  descriptionEl.textContent = descriptionEl;
-  
-}
 
 saveBtn.addEventListener("click", function(event) {
-  event.preventDefault();
-  console.log("saveBtn")
+event.preventDefault();
 
-  
+let appointmentMessage = {
+  messageInput: messageInput.value.trim()
+};
 
-    localStorage.setItem("descriptionInput", descriptionEl);
-    console.log("descriptionEl")
-   
-    renderLastRegistered();
-  })
+localStorage.setItem("appointmentMessage", JSON.stringify(appointmentMessage));
 
 
+});
 
 
-    
-    
